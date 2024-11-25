@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD013 -->
+
 # mylorem.nvim
 
 **mylorem.nvim** adalah plugin Neovim untuk menghasilkan teks **Lorem Ipsum** secara dinamis dengan dukungan berbagai snippet engine seperti **LuaSnip**, **UltiSnips**, dan **VSnip**. Plugin ini mempermudah pembuatan teks dummy saat coding, terutama bagi pengembang frontend, backend, atau dokumentasi.
@@ -20,7 +22,7 @@ Jika Anda menggunakan [LazyVim](https://github.com/folke/lazy.nvim), tambahkan k
 
 ```lua
 return {
-  "elvxk/mylorem.nvim", -- Ganti 'username' dengan nama GitHub Anda
+  "elvxk/mylorem.nvim",
   lazy = false,
   config = function()
     require("mylorem").setup({
@@ -39,7 +41,7 @@ Tambahkan ke konfigurasi Packer Anda:
 
 ```lua
 use {
-  "elvxk/mylorem.nvim", -- Ganti 'username' dengan nama GitHub Anda
+  "elvxk/mylorem.nvim",
   config = function()
     require("mylorem").setup({
       luasnip = true,
@@ -56,7 +58,7 @@ use {
 Tambahkan ke file `init.vim` atau `init.lua`:
 
 ```vim
-Plug 'username/mylorem.nvim'
+Plug 'elvxk/mylorem.nvim'
 
 lua << EOF
 require("mylorem").setup({
