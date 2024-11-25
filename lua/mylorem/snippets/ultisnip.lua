@@ -1,18 +1,23 @@
 local function setup(generate_lorem)
-  vim.g.UltiSnipsSnippetDirectories = { "~/.config/nvim/snippets" }
+	local ultisnips_dir = vim.fn.stdpath("config") .. "/UltiSnips"
+	vim.fn.mkdir(ultisnips_dir, "p")
+	local file = io.open(ultisnips_dir .. "/lorem.snippets", "w")
+	file:write([[
+snippet lorem
+]] .. generate_lorem(50) .. [[
+endsnippet
 
-  vim.cmd([[
-    snippet lorem "Generate Lorem Ipsum"
-      python <<EOF
-import random
-lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-words = lorem.split(" ")
-word_count = int(snippet.split()[1]) if len(snippet.split()) > 1 else 50
-return " ".join(words[:word_count])
-EOF
-  ]])
+snippet lorem25
+]] .. generate_lorem(25) .. [[
+endsnippet
+
+snippet lorem100
+]] .. generate_lorem(100) .. [[
+endsnippet
+]])
+	file:close()
 end
 
 return {
-  setup = setup,
+	setup = setup,
 }

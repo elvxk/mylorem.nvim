@@ -1,15 +1,15 @@
-local vsnip = require("vsnip")
-
 local function setup(generate_lorem)
-  vsnip.add_snippets("all", {
-    trigger = "lorem",
-    snippet = function(args)
-      local word_count = tonumber(args[1]) or 50
-      return generate_lorem(word_count)
-    end,
-  })
+	local vsnip_dir = vim.fn.stdpath("config") .. "/vsnip"
+	vim.fn.mkdir(vsnip_dir, "p")
+	local file = io.open(vsnip_dir .. "/all.json", "w")
+	file:write(vim.fn.json_encode({
+		lorem = { prefix = "lorem", body = generate_lorem(50) },
+		lorem25 = { prefix = "lorem25", body = generate_lorem(25) },
+		lorem100 = { prefix = "lorem100", body = generate_lorem(100) },
+	}))
+	file:close()
 end
 
 return {
-  setup = setup,
+	setup = setup,
 }
