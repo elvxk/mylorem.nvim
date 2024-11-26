@@ -8,8 +8,7 @@
 
 <p align="center">
   <samp
-    ><br />「 <b>mylorem.nvim</b> adalah plugin Neovim untuk menghasilkan teks <b>Lorem Ipsum</b> secara dinamis dengan dukungan berbagai snippet engine seperti <b>LuaSnip</b>, <b>UltiSnips</b>, dan <b>VSnip</b>. Plugin ini mempermudah pembuatan teks dummy saat coding, terutama bagi pengembang frontend, backend, atau dokumentasi.
- 」
+    ><br />「 <b>mylorem.nvim</b> is a Neovim plugin for dynamically generating <b>Lorem Ipsum</b> text with support for various snippet engines such as <b>LuaSnip</b>, <b>UltiSnips</b>, and <b>VSnip</b>. This plugin simplifies the creation of dummy text while coding, especially for frontend, backend, or documentation developers. 」
     <br />
   </samp>
 </p>
@@ -20,140 +19,137 @@
 </div>
 <br/>
 <p align="center">
-  <a href="#fitur">Fitur</a> •
-  <a href="#instalasi">Instalasi</a> •
-  <a href="#penggunaan">Penggunaan</a> •
-  <a href="#penggunaan">Penggunaan</a> •
-  <a href="#konfigurasi">Konfigurasi</a> •
-  <a href="#kontribusi">Kontribusi</a> •
-  <a href="#lisensi">Lisensi</a>
+  <a href="#features-🌟">Features</a> •
+  <a href="#installation-📝">Installation</a> •
+  <a href="#usage-⚙️">Usage</a> •
+  <a href="#configuration-⚙️">Configuration</a> •
+  <a href="#contribution-🤝">Contribution</a> •
+  <a href="#license-📜">License</a>
 </p>
 
 ---
 
 <br/>
 
-## Fitur
+## Features 🌟
 
-- Generate **Lorem Ipsum** langsung di editor Neovim.
-- Mendukung input dinamis seperti `lorem25` untuk menghasilkan 25 kata.
-- Kompatibel dengan snippet engine populer:
-  - **LuaSnip**
-  - **UltiSnips**
-  - **VSnip**
-- Mudah dikonfigurasi dan diintegrasikan dengan berbagai distro Neovim.
+- Generate **Lorem Ipsum** directly in the Neovim editor. ✨
+- Supports dynamic input such as `lorem25` to generate 25 words. 🔢
+- Compatible with popular snippet engines:
+  - **LuaSnip** ⚡
+  - **UltiSnips** 🔧
+  - **VSnip** 🎯
+- Easy to configure and integrate with various Neovim distributions. 🛠️
 
 <br/>
 
-## Instalasi
+## Installation 📝
 
-#### Dengan LazyVim
+#### LazyVim
 
-- Jika Anda menggunakan [LazyVim](https://github.com/folke/lazy.nvim), tambahkan konfigurasi berikut ke file `plugins.lua` atau folder plugin Anda:
+- If you are using [LazyVim](https://github.com/folke/lazy.nvim), add the following configuration to your `plugins.lua` file or your plugin folder:
 
   ```lua
   return {
-    "elvxk/mylorem.nvim",
-    lazy = false,
-    config = function()
-      require("mylorem").setup({
-        luasnip = true,    -- Aktifkan untuk LuaSnip
-        ultisnips = false, -- Aktifkan untuk UltiSnips
-        vsnip = false,     -- Aktifkan untuk VSnip
-        default = true,    -- Gunakan LuaSnip secara default
-      })
-    end,
+  "elvxk/mylorem.nvim",
+  lazy = false,
+  config = function()
+    require("mylorem").setup({
+      luasnip = true,    -- Enable for LuaSnip
+      ultisnips = false, -- Enable for UltiSnips
+      vsnip = false,     -- Enable for VSnip
+      default = true,    -- Use LuaSnip by default
+    })
+  end,
   }
   ```
 
-#### Dengan Packer
+#### Packer
 
-- Tambahkan ke konfigurasi Packer Anda:
+- Add to your Packer configuration:
 
   ```lua
   use {
     "elvxk/mylorem.nvim",
     config = function()
       require("mylorem").setup({
-        luasnip = true,
-        ultisnips = false,
-        vsnip = false,
-        default = true,
+        luasnip = true,    -- Enable for LuaSnip
+        ultisnips = false, -- Enable for UltiSnips
+        vsnip = false,     -- Enable for VSnip
+        default = true,    -- Use LuaSnip by default
       })
     end,
   }
   ```
 
-#### Dengan Vim-Plug
+#### Vim-Plug
 
-- Tambahkan ke file `init.vim` atau `init.lua`:
+- Add to your `init.vim` or `init.lua` file:
 
-  ```vim
+  ```lua
   Plug 'elvxk/mylorem.nvim'
 
   lua << EOF
   require("mylorem").setup({
-    luasnip = true,
-    ultisnips = false,
-    vsnip = false,
-    default = true,
+    luasnip = true,    -- Enable for LuaSnip
+    ultisnips = false, -- Enable for UltiSnips
+    vsnip = false,     -- Enable for VSnip
+    default = true,    -- Use LuaSnip by default
   })
   EOF
   ```
 
 <br/>
 
-## Penggunaan
+## Usage ⚙️
 
-- LuaSnip:
-  - Ketik `lorem`, `lorem25`, atau `lorem100`, lalu gunakan mekanisme ekspansi LuaSnip.
-- UltiSnips:
-  - Ketik `lorem`, `lorem25`, atau `lorem100`, lalu tekan `<Tab>` untuk ekspansi.
-- VSnip:
-  - Ketik dan pilih snippet `lorem`, `lorem25`, atau `lorem100` dari daftar popup.
+- **LuaSnip**:
+  - Type `lorem`, `lorem25`, or `lorem100`, then use LuaSnip's expansion mechanism. 🚀
+- **UltiSnips**:
+  - Type `lorem`, `lorem25`, or `lorem100`, then press `<Tab>` to expand. ⌨️
+- **VSnip**:
+  - Type and select the `lorem`, `lorem25`, or `lorem100` snippet from the popup list. 🎯
 
 <br/>
 
-## Konfigurasi
+## Configuration ⚙️
 
-Plugin mendukung beberapa opsi konfigurasi yang dapat diatur dalam fungsi `setup`:
+The plugin supports several configuration options that can be set in the `setup` function:
 
-- `luasnip` (boolean): Aktifkan dukungan untuk LuaSnip. Default: `false`.
-- `ultisnips` (boolean): Aktifkan dukungan untuk UltiSnips. Default: `false`.
-- `vsnip` (boolean): Aktifkan dukungan untuk VSnip. Default: `false`.
-- `default` (boolean): Gunakan LuaSnip secara default jika opsi lainnya tidak diaktifkan. Default: `true`.
+- `luasnip` (boolean): Enable support for LuaSnip. Default: `false`.
+- `ultisnips` (boolean): Enable support for UltiSnips. Default: `false`.
+- `vsnip` (boolean): Enable support for VSnip. Default: `false`.
+- `default` (boolean): Use LuaSnip by default if other options are not enabled. Default: `true`.
 
-Contoh konfigurasi:
+Example configuration:
 
 ```lua
 require("mylorem").setup({
-  luasnip = true,    -- Aktifkan LuaSnip
-  ultisnips = false, -- Nonaktifkan UltiSnips
-  vsnip = false,     -- Nonaktifkan VSnip
-  default = true,    -- Gunakan LuaSnip jika yang lain tidak aktif
+  luasnip = true,    -- Enable LuaSnip
+  ultisnips = false, -- Disable UltiSnips
+  vsnip = false,     -- Disable VSnip
+  default = true,    -- Use LuaSnip if others are not active
 })
 ```
 
 <br/>
 
-## Kontribusi
+## Contribution 🤝
 
-Kontribusi sangat dihargai! Jika Anda menemukan bug atau ingin menambahkan fitur baru, silakan buat issue atau pull request di repositori GitHub ini.
-
-<br/>
-
-## Lisensi
-
-Plugin ini dirilis di bawah lisensi MIT. Lihat file `LICENSE` untuk detail lebih lanjut.
+Contributions are greatly appreciated! If you find a bug or would like to add a new feature, please create an issue or pull request on this GitHub repository.🐛🚀
 
 <br/>
+
+## License 📜
+
+This plugin is released under the MIT license. See the `LICENSE` file for more details.
+
 <br/>
 
 ---
 
 <div align='center'>
 <b>ELVXK</b>
-<br/>
 <br/>
 <a href="https://github.com/elvxk" target="_blank"><samp>Github</samp></a>
 &nbsp;&middot;&nbsp;
