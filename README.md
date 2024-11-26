@@ -19,12 +19,12 @@
 </div>
 <br/>
 <p align="center">
-  <a href="#features-🌟">Features</a> •
-  <a href="#installation-📝">Installation</a> •
-  <a href="#usage-⚙️">Usage</a> •
-  <a href="#configuration-⚙️">Configuration</a> •
-  <a href="#contribution-🤝">Contribution</a> •
-  <a href="#license-📜">License</a>
+  <a href="#features-">Features</a> •
+  <a href="#installation-">Installation</a> •
+  <a href="#usage-%EF%B8%8F">Usage</a> •
+  <a href="#configuration-%EF%B8%8F">Configuration</a> •
+  <a href="#contribution-">Contribution</a> •
+  <a href="#license-">License</a>
 </p>
 
 ---
